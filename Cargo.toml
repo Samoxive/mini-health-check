@@ -1,0 +1,16 @@
+[package]
+name = "mini-health-check"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ureq = { version = "2.6.2", default-features = false, features = ["tls"] }
+rustls = { version = "0.20.8", features = ["dangerous_configuration"] }
+rustls-native-certs = "0.6"
+
+[profile.release]
+debug = false
+lto = true
+panic = "abort"
